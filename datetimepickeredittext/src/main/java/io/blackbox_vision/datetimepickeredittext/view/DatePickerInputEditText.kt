@@ -1,26 +1,26 @@
 package io.blackbox_vision.datetimepickeredittext.view
 
+import android.app.Activity
+import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Context
-import com.google.android.material.textfield.TextInputEditText
-import androidx.fragment.app.FragmentManager
+import android.content.ContextWrapper
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.OnClickListener
+import android.view.View.OnFocusChangeListener
 import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
-
-import java.text.DateFormat
-import java.util.Calendar
-import java.util.Locale
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.fragment.app.FragmentActivity
+import com.google.android.material.textfield.TextInputEditText
 import io.blackbox_vision.datetimepickeredittext.R
 import io.blackbox_vision.datetimepickeredittext.internal.fragment.DatePickerFragment
 import io.blackbox_vision.datetimepickeredittext.internal.utils.DateUtils
-
-import android.view.View.OnFocusChangeListener
-import android.view.View.OnClickListener
-import android.app.DatePickerDialog.OnDateSetListener
-import androidx.appcompat.app.AppCompatActivity
+import io.blackbox_vision.datetimepickeredittext.utils.getSupportFragmentManager
+import java.text.DateFormat
+import java.util.*
 
 
 class DatePickerInputEditText : TextInputEditText, OnFocusChangeListener, OnClickListener, OnDateSetListener {
@@ -60,7 +60,7 @@ class DatePickerInputEditText : TextInputEditText, OnFocusChangeListener, OnClic
         setOnClickListener(this)
 
         /*Set fragment manager*/
-        manager = (context as AppCompatActivity).supportFragmentManager
+        manager = getSupportFragmentManager()
     }
 
     private fun handleAttributes(attributeSet: AttributeSet) {

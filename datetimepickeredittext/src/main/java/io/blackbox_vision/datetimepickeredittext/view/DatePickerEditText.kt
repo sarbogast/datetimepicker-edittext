@@ -21,6 +21,7 @@ import android.view.View.OnFocusChangeListener
 import android.view.View.OnClickListener
 import android.app.DatePickerDialog.OnDateSetListener
 import androidx.appcompat.app.AppCompatActivity
+import io.blackbox_vision.datetimepickeredittext.utils.getSupportFragmentManager
 
 
 class DatePickerEditText : AppCompatEditText, OnFocusChangeListener, OnClickListener, OnDateSetListener {
@@ -60,7 +61,7 @@ class DatePickerEditText : AppCompatEditText, OnFocusChangeListener, OnClickList
         setOnClickListener(this)
 
         /*Set fragment manager*/
-        manager = (context as AppCompatActivity).supportFragmentManager
+        manager = getSupportFragmentManager()
     }
 
     private fun handleAttributes(attributeSet: AttributeSet) {
