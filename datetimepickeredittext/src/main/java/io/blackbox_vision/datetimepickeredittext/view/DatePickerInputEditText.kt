@@ -98,7 +98,7 @@ class DatePickerInputEditText : TextInputEditText, OnFocusChangeListener, OnClic
         showDatePicker()
     }
 
-    private fun showDatePicker() {
+    fun showDatePicker() {
         val datePickerFragment = DatePickerFragment()
 
         datePickerFragment.date = date

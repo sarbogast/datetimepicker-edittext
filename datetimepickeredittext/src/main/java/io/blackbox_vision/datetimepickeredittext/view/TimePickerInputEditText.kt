@@ -98,7 +98,7 @@ class TimePickerInputEditText : TextInputEditText, OnFocusChangeListener, OnClic
         showTimePicker()
     }
 
-    private fun showTimePicker() {
+    fun showTimePicker() {
         val timePicker = TimePickerFragment()
 
         timePicker.is24HourView = is24HourView
