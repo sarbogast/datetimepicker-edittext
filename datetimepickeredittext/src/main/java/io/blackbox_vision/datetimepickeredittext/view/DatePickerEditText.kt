@@ -10,8 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 
 import java.text.DateFormat
-import java.util.Calendar
-import java.util.Locale
 
 import io.blackbox_vision.datetimepickeredittext.R
 import io.blackbox_vision.datetimepickeredittext.internal.fragment.DatePickerFragment
@@ -22,6 +20,7 @@ import android.view.View.OnClickListener
 import android.app.DatePickerDialog.OnDateSetListener
 import androidx.appcompat.app.AppCompatActivity
 import io.blackbox_vision.datetimepickeredittext.utils.getSupportFragmentManager
+import java.util.*
 
 
 class DatePickerEditText : AppCompatEditText, OnFocusChangeListener, OnClickListener, OnDateSetListener {
@@ -192,6 +191,16 @@ class DatePickerEditText : AppCompatEditText, OnFocusChangeListener, OnClickList
 
     fun setMinDate(minDate: String): DatePickerEditText {
         this.minDate = minDate
+        return this
+    }
+
+    fun setMinDate(minDate: Date): DatePickerEditText {
+        this.minDate = DateUtils.toDate(minDate, null).toString()
+        return this
+    }
+
+    fun setMaxDate(maxDate: Date): DatePickerEditText {
+        this.maxDate = DateUtils.toDate(maxDate, null).toString()
         return this
     }
 

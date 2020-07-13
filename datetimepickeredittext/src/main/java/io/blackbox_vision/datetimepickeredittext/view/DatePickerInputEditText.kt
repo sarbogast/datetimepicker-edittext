@@ -193,6 +193,16 @@ class DatePickerInputEditText : TextInputEditText, OnFocusChangeListener, OnClic
         return this
     }
 
+    fun setMinDate(minDate: Date): DatePickerInputEditText {
+        this.minDate = DateUtils.toDate(minDate, null).toString()
+        return this
+    }
+
+    fun setMaxDate(maxDate: Date): DatePickerInputEditText {
+        this.maxDate = DateUtils.toDate(maxDate, null).toString()
+        return this
+    }
+
     companion object {
         private val TAG = "DatePickerInputEditText"
     }
