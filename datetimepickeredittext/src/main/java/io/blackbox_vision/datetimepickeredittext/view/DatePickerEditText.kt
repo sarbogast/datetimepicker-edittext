@@ -141,6 +141,13 @@ class DatePickerEditText : AppCompatEditText, OnFocusChangeListener, OnClickList
 
     fun setDate(date: Calendar): DatePickerEditText {
         this.date = date
+
+        if (textDateFormat != null) {
+            setText(textDateFormat!!.format(date.time))
+        } else {
+            setText(DateUtils.toDate(date.time, dateFormat))
+        }
+
         return this
     }
 
